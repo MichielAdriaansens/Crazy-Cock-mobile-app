@@ -32,7 +32,7 @@ public class Ai : MonoBehaviour
 	{
 		if (_move.plannedRoute.Count == 0)
 		{
-			_move.SendMessage ("SetRoute", _wpManage.tempL);
+			_move.SendMessage ("SetRoute", _wpManage.tempL);	//set wich route unit will follow 
 		}
 		_move.FollowRoute ();
 	}
