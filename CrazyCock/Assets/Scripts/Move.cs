@@ -7,26 +7,32 @@ public class Move : WayPointManager
 {
 	
 	public Transform _CurDestination;
+
 	UnitStats _unitStats;
+	Ai _ai;
 
 	public NavMeshAgent _NavMesh;
 
-
 	public bool moveActive = false;
-	public bool onTarget;
+	[HideInInspector]
+	public bool patrolPause;
+	[HideInInspector]
 	public bool onRoute;
+	[HideInInspector]
+	public int nextDest = 0;
 
 	public List<Transform> plannedRoute;
 
-	public int nextDest = 0;
+
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
 		plannedRoute = new List<Transform> ();
 		//Get required Components this script interacts with
 		_NavMesh = this.GetComponent<NavMeshAgent> ();
 		_NavMesh.speed = 0;
 		_unitStats = this.GetComponent<UnitStats> ();
+		_ai = this.GetComponent<Ai> ();
 
 		//warn ya dumbass for forgetting to assign navmesh agent component on unit
 		if (_NavMesh == null) 
@@ -43,35 +49,48 @@ public class Move : WayPointManager
 			Vector3 targetVector = _CurDestination.transform.position;
 			_NavMesh.SetDestination (targetVector);
 			Distance ();
-		}	
+		} else
+		{
+			moveActive = false;
+		}
 	}
 
 	float Distance() //Calculate destination between target ennehh poppetje.. returns float value daarvan. handig
-	{
-		Vector3 direction = _CurDestination.position - this.transform.position;
-		return direction.magnitude;
+	{	if (_CurDestination != null)
+		{
+			Vector3 direction = _CurDestination.position - this.transform.position;
+			return direction.magnitude;
+		} else
+		{
+			return 0f;
+		}
 	}
 
 	void DestinationReached(bool bingo) //functie runs when bestemming is reached
 	{
-		print ("i'm here now!");
 		StopUnit ();
-		onTarget = true;
-		_CurDestination = null;
+
+
 
 		if (onRoute)
 		{
 			onRoute = false;
 			nextDest++;
-			if (nextDest > plannedRoute.Count -1)
+			if (nextDest > plannedRoute.Count - 1)
 			{
 				nextDest = 0;
 			}
+		} 
+		else
+		{
+			_ai.SendMessage ("CheckOnTarget", true);
+
+			_CurDestination = null;
 		}
 	}
 		
-
-	void SetRoute(Transform[] routeInput)
+	#region SetFollowRoutePauses
+	void SetRoute(List<Transform> routeInput)
 	{
 		foreach (Transform path in routeInput)
 		{
@@ -82,28 +101,54 @@ public class Move : WayPointManager
 
 	public void FollowRoute()
 	{
-		// coroutine voor randon timer
+		
 		if (!onRoute)
 		{
-			_CurDestination = plannedRoute [nextDest];
-			SetDestination ();	//Niet vergeten als je moet lopen
-			moveActive = true;
-
+			// coroutine voor randon pause inbetween moving from reached target to the next
+			StartCoroutine (HoldUpNibba ());
 			onRoute = true;
-		}
+		} 
+
 	}
 
 	IEnumerator HoldUpNibba()
 	{
-		
-		yield return null;
+		_CurDestination = plannedRoute [nextDest].transform;
 
+		float rng;
+		//change the seed number of the random range to make it more rng
+		Random.InitState(System.DateTime.Now.Millisecond);
+		rng = Random.Range (0,3);
+		if (rng == 0 && _unitStats.Performance < 7 || _unitStats.Performance < 3)
+		{
+			patrolPause = true;
+		} else
+		{
+			patrolPause = false;
+		}
 
+		if (patrolPause)
+		{
+			rng = Random.Range (0, 30) / 10f;
+		} else
+		{
+			 rng = 0; 
+		}
+
+		print ("wp " + _CurDestination.name);
+
+		yield return new WaitForSeconds(rng);
+
+		//FollowRoute Code
+
+		SetDestination ();	//Niet vergeten als je moet lopen
+		moveActive = true;
 	}
+	#endregion
 
 	void MoveUnit() //set de speed of the nav mesh agent so the unit starts moving
 	{
-		onTarget = false;
+		
 		if (_CurDestination == null)
 		{
 			moveActive = false;

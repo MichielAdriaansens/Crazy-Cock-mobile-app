@@ -11,7 +11,7 @@ public class Ai : MonoBehaviour
 	public enum UnitState {Idle, Patrol, Chase, FLee};
 	public UnitState unitState;
 
-	private bool isTriggered;
+	private bool isTriggered = false;
 
 	void Start()
 	{
@@ -23,7 +23,8 @@ public class Ai : MonoBehaviour
 
 	void Chase()
 	{
-		_move._CurDestination = GameObject.Find ("target").transform;
+		_move.onRoute = false;
+	//	_move._CurDestination = GameObject.Find ("target").transform;	//Debug target must be Player
 		_move.SetDestination ();
 		_move.moveActive = true;
 	}
@@ -31,7 +32,7 @@ public class Ai : MonoBehaviour
 	{
 		if (_move.plannedRoute.Count == 0)
 		{
-			_move.SendMessage ("SetRoute", _wpManage.RouteA);
+			_move.SendMessage ("SetRoute", _wpManage.tempL);
 		}
 		_move.FollowRoute ();
 	}
@@ -40,25 +41,49 @@ public class Ai : MonoBehaviour
 		switch (unitState)
 		{
 		case UnitState.Idle:
+			#region OnceInUpdate
+			if (!isTriggered)
+			{
+				_move.onRoute = false;
+				isTriggered = true;
+			}
+			#endregion
 			_move.StopUnit ();
 			break;
 		case UnitState.Patrol:
+	
 			Patrol ();			
 			break;
 		case UnitState.FLee:
+			#region OnceInUpdate
+			if (!isTriggered)
+			{
+				_move.onRoute = false;
+				isTriggered = true;
+			}
+			#endregion
 			break;
 		case UnitState.Chase:
-			Chase ();
-			if (_move.onTarget)
+			#region OnceInUpdate
+			if (!isTriggered)
 			{
-				unitState = UnitState.Idle;
+				_move.onRoute = false;
+				isTriggered = true;
 			}
+			#endregion
+			Chase ();
 			break;
 		default:
 			break;
 		}	
 	}
+	void CheckOnTarget(bool bingo)
+	{
+		unitState = UnitState.Idle;
 
+		return;
+	}
+		
 	void Update()
 	{
 		SwitchState ();
