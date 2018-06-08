@@ -888,16 +888,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wp: []
   tempL: []
-  RouteAll: []
-  RouteA: []
-  a: 0
+  RouteUpperL: []
+  RouteBottomL: []
+  RouteUpperR: []
+  RouteBottomR: []
   _CurDestination: {fileID: 0}
   _NavMesh: {fileID: 0}
   moveActive: 0
   patrolPause: 0
   onRoute: 0
-  plannedRoute: []
   nextDest: 0
+  plannedRoute: []
 --- !u!114 &114446381595278424
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1025,4 +1026,4 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
