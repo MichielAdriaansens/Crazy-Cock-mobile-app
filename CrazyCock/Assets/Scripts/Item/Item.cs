@@ -6,6 +6,7 @@ public class Item : MonoBehaviour
 {
 	public int pointValue;
 	public float speedBuff;
+	public float buffduration;
 
 	// Use this for initialization
 	void Start () 
@@ -14,11 +15,13 @@ public class Item : MonoBehaviour
 		{
 			pointValue = 1;
 			speedBuff = 0f;
+			buffduration = 0;
 		}
 		else if (transform.name == "NRGItem")
 		{
 			pointValue = 25;
-			speedBuff = 0.5f;
+			speedBuff = 1f;
+			buffduration = 6f;
 		}
 	}
 

@@ -14,6 +14,8 @@ public class PlayerStats : MonoBehaviour {
 	public bool NRGized;
 
 
+
+
 //	void Awake()
 //	{
 //		if (instance == null)

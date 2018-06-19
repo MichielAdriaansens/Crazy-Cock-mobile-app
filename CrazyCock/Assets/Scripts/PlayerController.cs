@@ -85,14 +85,26 @@ public class PlayerController : MonoBehaviour {
 
 			if (item.transform.name == "NRGItem")
 			{
+				
 				//Maak IE numerator timer SpeedBuff
+				StartCoroutine(OnDrugs(item.buffduration, item.speedBuff));
 			}
 
 			item.DestroyObj ();
 		}
 	}
 
-	//IEnumerator 
+	//Buff Timer
+	IEnumerator OnDrugs(float duration, float spBuff)
+	{
+		pStats.NRGized = true;
+		pStats.playaSpeed = pStats.playaSpeed + spBuff;
+
+		yield return new WaitForSeconds (duration);
+
+		pStats.playaSpeed = pStats.playaSpeed - spBuff;
+		pStats.NRGized = false;
+	}
 		
 
 	
