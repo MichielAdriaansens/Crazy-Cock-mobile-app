@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor.AI;
 
-public class AnimCtrl : MonoBehaviour 
+public class AnimCtrl_Enemy : MonoBehaviour 
 {
 	Move _PathF;
 	Animator _Anim;

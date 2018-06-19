@@ -1,0 +1,423 @@
+fileFormatVersion: 2
+guid: 1266dc65396544940894f6cdf1f3b8f1
+timeCreated: 1529007661
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bn_BallChin
+    100002: Bn_Beak_Down
+    100004: Bn_Beak_up
+    100006: Bn_Chest
+    100008: Bn_Eye_L
+    100010: Bn_Eye_R
+    100012: Bn_Foot_L
+    100014: Bn_Foot_R
+    100016: Bn_Head
+    100018: Bn_Hip_L
+    100020: Bn_Hip_R
+    100022: Bn_leg_Down_L
+    100024: Bn_leg_Down_R
+    100026: Bn_leg_Up_L
+    100028: Bn_leg_Up_R
+    100030: Bn_mowhawk
+    100032: Bn_Neck_01
+    100034: Bn_Neck_02
+    100036: Bn_Neck_03
+    100038: Bn_Neck_04
+    100040: Bn_Pelvis
+    100042: Bn_Root
+    100044: Bn_Tail01
+    100046: Bn_Tail02
+    100048: Bn_Tail03
+    100050: Bn_Toe_Back_L_01
+    100052: Bn_Toe_Back_L_02
+    100054: Bn_Toe_Back_R_01
+    100056: Bn_Toe_Back_R_02
+    100058: Bn_Toe_Front_L_A01
+    100060: Bn_Toe_Front_L_A02
+    100062: Bn_Toe_Front_L_B01
+    100064: Bn_Toe_Front_L_B02
+    100066: Bn_Toe_Front_R_A01
+    100068: Bn_Toe_Front_R_A02
+    100070: Bn_Toe_Front_R_B01
+    100072: Bn_Toe_Front_R_B02
+    100074: Bn_Wing_L_01
+    100076: Bn_Wing_L_02
+    100078: Bn_Wing_L_03
+    100080: Bn_Wing_L_04
+    100082: Bn_Wing_R_01
+    100084: Bn_Wing_R_02
+    100086: Bn_Wing_R_03
+    100088: Bn_Wing_R_04
+    100090: BnEnd_BallChin
+    100092: BnEnd_Eye_L
+    100094: BnEnd_Eye_R
+    100096: BnEnd_Head
+    100098: BnEnd_Tail
+    100100: BnEnd_Toe_Back_L
+    100102: BnEnd_Toe_Back_R
+    100104: BnEnd_Toe_Front_L_A
+    100106: BnEnd_Toe_Front_L_B
+    100108: BnEnd_Toe_Front_R_A
+    100110: BnEnd_Toe_Front_R_B
+    100112: BnEnd_Wing_L
+    100114: BnEnd_Wing_R
+    100116: CC_Mesh
+    100118: //RootNode
+    100120: joint27
+    100122: joint28
+    100124: joint28 1
+    100126: joint31
+    400000: Bn_BallChin
+    400002: Bn_Beak_Down
+    400004: Bn_Beak_up
+    400006: Bn_Chest
+    400008: Bn_Eye_L
+    400010: Bn_Eye_R
+    400012: Bn_Foot_L
+    400014: Bn_Foot_R
+    400016: Bn_Head
+    400018: Bn_Hip_L
+    400020: Bn_Hip_R
+    400022: Bn_leg_Down_L
+    400024: Bn_leg_Down_R
+    400026: Bn_leg_Up_L
+    400028: Bn_leg_Up_R
+    400030: Bn_mowhawk
+    400032: Bn_Neck_01
+    400034: Bn_Neck_02
+    400036: Bn_Neck_03
+    400038: Bn_Neck_04
+    400040: Bn_Pelvis
+    400042: Bn_Root
+    400044: Bn_Tail01
+    400046: Bn_Tail02
+    400048: Bn_Tail03
+    400050: Bn_Toe_Back_L_01
+    400052: Bn_Toe_Back_L_02
+    400054: Bn_Toe_Back_R_01
+    400056: Bn_Toe_Back_R_02
+    400058: Bn_Toe_Front_L_A01
+    400060: Bn_Toe_Front_L_A02
+    400062: Bn_Toe_Front_L_B01
+    400064: Bn_Toe_Front_L_B02
+    400066: Bn_Toe_Front_R_A01
+    400068: Bn_Toe_Front_R_A02
+    400070: Bn_Toe_Front_R_B01
+    400072: Bn_Toe_Front_R_B02
+    400074: Bn_Wing_L_01
+    400076: Bn_Wing_L_02
+    400078: Bn_Wing_L_03
+    400080: Bn_Wing_L_04
+    400082: Bn_Wing_R_01
+    400084: Bn_Wing_R_02
+    400086: Bn_Wing_R_03
+    400088: Bn_Wing_R_04
+    400090: BnEnd_BallChin
+    400092: BnEnd_Eye_L
+    400094: BnEnd_Eye_R
+    400096: BnEnd_Head
+    400098: BnEnd_Tail
+    400100: BnEnd_Toe_Back_L
+    400102: BnEnd_Toe_Back_R
+    400104: BnEnd_Toe_Front_L_A
+    400106: BnEnd_Toe_Front_L_B
+    400108: BnEnd_Toe_Front_R_A
+    400110: BnEnd_Toe_Front_R_B
+    400112: BnEnd_Wing_L
+    400114: BnEnd_Wing_R
+    400116: CC_Mesh
+    400118: //RootNode
+    400120: joint27
+    400122: joint28
+    400124: joint28 1
+    400126: joint31
+    2100000: lambert3
+    2100002: lambert4
+    4300000: CC_Mesh
+    7400000: CC_Sit
+    7400002: CC_Sit_Loop
+    7400004: CC_Sit_End
+    7400006: CC_Crazy
+    7400008: CC_WalkCrazy_start
+    7400010: CC_WalkCrazy_Loop
+    7400012: CC_Idle
+    9500000: //RootNode
+    13700000: CC_Mesh
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: CC_Sit
+      takeName: Take 001
+      firstFrame: 126
+      lastFrame: 139
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CC_Sit_Loop
+      takeName: Take 001
+      firstFrame: 139
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CC_Sit_End
+      takeName: Take 001
+      firstFrame: 150
+      lastFrame: 157
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CC_Crazy
+      takeName: Take 001
+      firstFrame: 200
+      lastFrame: 224
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CC_WalkCrazy_start
+      takeName: Take 001
+      firstFrame: 224
+      lastFrame: 254
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CC_WalkCrazy_Loop
+      takeName: Take 001
+      firstFrame: 255
+      lastFrame: 326
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CC_Idle
+      takeName: Take 001
+      firstFrame: 5
+      lastFrame: 125
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

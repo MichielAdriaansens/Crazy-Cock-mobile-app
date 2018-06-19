@@ -17,7 +17,7 @@ public class Ai : MonoBehaviour
 	{
 		//unitState = UnitState.Patrol;
 		_move = GetComponent<Move> ();
-		_wpManage = GameObject.Find ("WayPoint_holder").GetComponent<WayPointManager> ();
+		_wpManage = GameObject.Find ("_WayPoint_holder").GetComponent<WayPointManager> ();
 		//_uStats = GetComponent<UnitStats> ();
 	}
 

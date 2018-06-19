@@ -27,7 +27,7 @@ public class WayPointManager : MonoBehaviour
 		instance = this;
 
 		_wp = GameObject.FindGameObjectsWithTag ("enemyWP");
-		System.Array.Reverse (_wp);
+
 		for(int i = 0; i < _wp.Length; i++)
 		{
 			_wp [i].name = "enemyWP " + i;
