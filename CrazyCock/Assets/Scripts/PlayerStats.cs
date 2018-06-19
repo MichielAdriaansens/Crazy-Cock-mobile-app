@@ -6,7 +6,7 @@ public class PlayerStats : MonoBehaviour {
 
 //	public static PlayerStats instance;
 
-	public int collectedEggs = 0;
+	public int localScore = 0;
 	public float playaSpeed = 1f;
 	public float rotSpeed = 5f;
 	public float stoppingDist = 0.1f;

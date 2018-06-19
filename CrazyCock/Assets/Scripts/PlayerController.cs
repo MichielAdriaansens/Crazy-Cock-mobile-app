@@ -74,11 +74,26 @@ public class PlayerController : MonoBehaviour {
 	}
 
 
-
-	void PickUpItem()
+	//PickUp Items
+	void OnTriggerEnter(Collider col)
 	{
+		if (col.gameObject.tag == "Item")
+		{
+			print (col.transform.name);
+			Item item = col.GetComponent<Item> ();
+			pStats.localScore = pStats.localScore + item.pointValue;
 
+			if (item.transform.name == "NRGItem")
+			{
+				//Maak IE numerator timer SpeedBuff
+			}
+
+			item.DestroyObj ();
+		}
 	}
+
+	//IEnumerator 
+		
 
 	
 	// Update is called once per frame
