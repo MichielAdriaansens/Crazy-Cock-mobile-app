@@ -34,10 +34,22 @@ public class AnimCtrl_Playa : MonoBehaviour
 
 	public void PlayDeath (Vector3 killedByPos)
 	{
+		//_anim.SetBool ("Walk", false);
+
+		StartCoroutine (WaitDie (killedByPos));
+
+	}
+	IEnumerator WaitDie(Vector3 killedByPos)
+	{
+		Random.InitState(System.DateTime.Now.Millisecond);
+		int _rng = Random.Range (0, 2);
+	
+		yield return new WaitForSecondsRealtime (_rng * 0.1f);
+
+		//Place In coroute wait partially for attack 
 		Instantiate (bloodPart, neck.transform.position, Quaternion.identity, neck.transform);
 		neck.transform.localScale = new Vector3 (0f, 0f, 0f);
 
-		//
 		_anim.enabled = false;
 		foreach (Rigidbody rb in rbBones)
 		{
@@ -48,14 +60,14 @@ public class AnimCtrl_Playa : MonoBehaviour
 				Vector3 dir = transform.position - killedByPos;
 
 				Random.InitState(System.DateTime.Now.Millisecond);
-				float rng =	Random.Range (1f, 20f);
-
-				rb.AddForce (dir * (rng * 100));
+				int rng =	Random.Range (0, 17);
 				print (rng);
+
+				rb.AddForce (dir * (rng * 150));
 			}
-		}
-			
-		//
+		}			
+
+
 	}
 
 

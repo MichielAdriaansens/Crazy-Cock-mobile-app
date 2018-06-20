@@ -13,6 +13,11 @@ public class AnimCtrl_Enemy : MonoBehaviour
 		_PathF =  this.GetComponent<Move>();
 		_Anim = this.GetComponentInChildren<Animator> ();		
 	}
+
+	public void Attack()
+	{
+		_Anim.SetBool ("Attack", true);
+	}
 	
 	// Update is called once per frame
 	void Update () 

@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour {
 			if (direction.magnitude > pStats.stoppingDist)
 			{
 				this.transform.Translate (direction.normalized * pStats.playaSpeed * Time.deltaTime, Space.World);
-				//transform.LookAt (target.position);
+
 				transform.rotation = Quaternion.Slerp (this.transform.rotation, Quaternion.LookRotation (direction), Time.deltaTime * pStats.rotSpeed);
 				isMoving = true;
 			}
@@ -116,6 +116,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void Dead(bool Bingo)
 	{
+		
 		Destroy (GetComponent<PlayerController> ());
 	}
 

@@ -7,6 +7,7 @@ public class Ai : MonoBehaviour
 	Move _move;
 	WayPointManager _wpManage;
 	UnitStats _uStats;
+	AnimCtrl_Enemy _anim;
 
 	GameObject _player;
 	Vector3 playerDist;
@@ -22,6 +23,7 @@ public class Ai : MonoBehaviour
 		_uStats = GetComponent<UnitStats> ();
 		_wpManage = GameObject.Find ("_WayPoint_holder").GetComponent<WayPointManager> ();
 		_player = GameObject.FindGameObjectWithTag ("PlayerCC");
+		_anim = GetComponent<AnimCtrl_Enemy> ();
 
 	}
 
@@ -43,26 +45,31 @@ public class Ai : MonoBehaviour
 
 	void DistanceFromPlayer()
 	{
-		playerDist = transform.position - _player.transform.position;
-		if (playerDist.magnitude < _uStats.AttackRange)
-		{
-			if(!_player.GetComponent<PlayerStats>().NRGized)
+
+			playerDist = transform.position - _player.transform.position;
+			if (playerDist.magnitude < _uStats.AttackRange)
 			{
+				//LookatPlayer
+				Vector3 newRot = _player.transform.position - this.transform.position;
+				transform.rotation = Quaternion.Slerp (this.transform.rotation, Quaternion.LookRotation (newRot), Time.deltaTime * 10);
+
+			if (!_player.GetComponent<PlayerStats> ().NRGized && !gotPlayer)
+			{
+				_anim.Attack ();
 				KillPlayer ();
+
+				gotPlayer = true;
 			}
 		}
 	}
+
 	void KillPlayer()
 	{
 		unitState = UnitState.Idle;
 
-		if (!gotPlayer)
-		{
-			_player.GetComponent<PlayerController> ().SendMessage ("Dead", true);
-			_player.GetComponent<AnimCtrl_Playa> ().PlayDeath(transform.position);
-		}
+		_player.GetComponent<PlayerController> ().SendMessage ("Dead", true);
+		_player.GetComponent<AnimCtrl_Playa> ().PlayDeath(transform.position);
 
-		gotPlayer = true;
 	}
 	void SwitchState () 
 	{

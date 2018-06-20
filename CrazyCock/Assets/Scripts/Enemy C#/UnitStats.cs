@@ -14,8 +14,8 @@ public class UnitStats : MonoBehaviour
 	public float BonusSpeed = 0.3f; 
 
 	//how close unit must be to destination to register ..when destination is reached
-	public float stoppingDist = 0.1f;
+	public float stoppingDist = 0.5f;
 
-	public float AttackRange = 1.25f;
+	public float AttackRange = 0.5f;
 
 }

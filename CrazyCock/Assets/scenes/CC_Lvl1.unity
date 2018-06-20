@@ -8733,6 +8733,16 @@ Prefab:
       propertyPath: _CurDestination
       value: 
       objectReference: {fileID: 565543469}
+    - target: {fileID: 114803842461061692, guid: 9e0449ef969a6a3458e5f938d326f35b,
+        type: 2}
+      propertyPath: Performance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114803842461061692, guid: 9e0449ef969a6a3458e5f938d326f35b,
+        type: 2}
+      propertyPath: AttackRange
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e0449ef969a6a3458e5f938d326f35b, type: 2}
   m_IsPrefabParent: 0

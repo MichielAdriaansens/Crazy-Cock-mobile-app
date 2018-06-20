@@ -11,9 +11,4 @@ public class PlayerStats : MonoBehaviour {
 
 	public bool NRGized;
 
-	public void Dead(bool Bingo)
-	{
-		
-	}
-
 }
