@@ -42,7 +42,7 @@ public class AnimCtrl_Playa : MonoBehaviour
 	IEnumerator WaitDie(Vector3 killedByPos)
 	{
 		Random.InitState(System.DateTime.Now.Millisecond);
-		int _rng = Random.Range (0, 2);
+		int _rng = Random.Range (1, 3);
 	
 		yield return new WaitForSecondsRealtime (_rng * 0.1f);
 
@@ -61,7 +61,6 @@ public class AnimCtrl_Playa : MonoBehaviour
 
 				Random.InitState(System.DateTime.Now.Millisecond);
 				int rng =	Random.Range (0, 17);
-				print (rng);
 
 				rb.AddForce (dir * (rng * 150));
 			}

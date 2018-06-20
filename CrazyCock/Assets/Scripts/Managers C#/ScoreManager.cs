@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour {
+public class ScoreManager : MonoBehaviour 
+{
 
 	public static ScoreManager instance;
 
@@ -35,7 +36,6 @@ public class ScoreManager : MonoBehaviour {
 		{
 			PlayerPrefs.SetInt ("highscore", score);
 		}
-
 	}
 
 	void getScore(int Eggs)

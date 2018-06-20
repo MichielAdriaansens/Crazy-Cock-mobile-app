@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	PlayerStats pStats;
-//	Animator _anim;
+
 	public Transform target;
+	GameObject Shadow;
 
 	public bool isMoving;
 
@@ -20,6 +21,8 @@ public class PlayerController : MonoBehaviour {
 	void Start () 
 	{
 		pStats = GetComponent<PlayerStats> ();
+
+		Shadow = transform.Find("FakeShadow").gameObject;
 	//	_anim = GetComponentInChildren<Animator> ();
 	}
 
@@ -116,7 +119,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void Dead(bool Bingo)
 	{
-		
+		DestroyObject (Shadow);
 		Destroy (GetComponent<PlayerController> ());
 	}
 
