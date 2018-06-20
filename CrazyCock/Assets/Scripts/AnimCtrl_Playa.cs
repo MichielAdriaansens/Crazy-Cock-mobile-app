@@ -8,14 +8,57 @@ public class AnimCtrl_Playa : MonoBehaviour
 	PlayerController playerCtrl;
 	Animator _anim;
 
+	public Component[] rbBones;
+
+	public GameObject bloodPart;
+
+	GameObject neck;
+
 	// Use this for initialization
 	void Start () 
 	{
 		playerCtrl = GetComponent<PlayerController> ();	
 		_anim = GetComponentInChildren<Animator> ();
 		pStats = GetComponent<PlayerStats> ();
+
+		neck = transform.Find("CC_scale/CrazyCock/Bn_Root/Bn_Pelvis/Bn_Chest/Bn_Neck_01").gameObject;
+
+		rbBones = GetComponentsInChildren <Rigidbody>();
+		foreach (Rigidbody rb in rbBones)
+		{
+			rb.isKinematic = true;
+		}
+
+
 	}
-	
+
+	public void PlayDeath (Vector3 killedByPos)
+	{
+		Instantiate (bloodPart, neck.transform.position, Quaternion.identity, neck.transform);
+		neck.transform.localScale = new Vector3 (0f, 0f, 0f);
+
+		//
+		_anim.enabled = false;
+		foreach (Rigidbody rb in rbBones)
+		{
+			rb.isKinematic = false;
+
+			if (rb.transform.name == "Bn_Chest")
+			{
+				Vector3 dir = transform.position - killedByPos;
+
+				Random.InitState(System.DateTime.Now.Millisecond);
+				float rng =	Random.Range (1f, 20f);
+
+				rb.AddForce (dir * (rng * 100));
+				print (rng);
+			}
+		}
+			
+		//
+	}
+
+
 	// Update is called once per frame
 	void Update () 
 	{
@@ -35,4 +78,6 @@ public class AnimCtrl_Playa : MonoBehaviour
 			_anim.SetBool ("CrazyMode", false);
 		}
 	}
+
+
 }

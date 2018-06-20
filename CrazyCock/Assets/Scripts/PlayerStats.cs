@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
 
-//	public static PlayerStats instance;
-
 	public int localScore = 0;
 	public float playaSpeed = 1f;
 	public float rotSpeed = 5f;
@@ -13,15 +11,9 @@ public class PlayerStats : MonoBehaviour {
 
 	public bool NRGized;
 
+	public void Dead(bool Bingo)
+	{
+		
+	}
 
-
-
-//	void Awake()
-//	{
-//		if (instance == null)
-//		{
-//			instance = this;
-//		}	
-//	}
-//
 }

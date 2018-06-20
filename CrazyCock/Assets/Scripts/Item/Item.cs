@@ -7,7 +7,8 @@ public class Item : MonoBehaviour
 	public int pointValue;
 	public float speedBuff;
 	public float buffduration;
-
+	public GameObject eggEffect;
+	public GameObject NRGEffect;
 	// Use this for initialization
 	void Start () 
 	{
@@ -25,6 +26,14 @@ public class Item : MonoBehaviour
 		}
 	}
 
+	public void EggParticle()
+	{
+		Instantiate (eggEffect, this.transform.position, Quaternion.identity);	
+	}
+	public void NRGParticle()
+	{
+		Instantiate (NRGEffect, this.transform.position, Quaternion.identity);	
+	}
 	public void DestroyObj()
 	{
 		Destroy (gameObject);

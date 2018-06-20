@@ -70,8 +70,6 @@ public class Move : WayPointManager
 	{
 		StopUnit ();
 
-
-
 		if (onRoute)
 		{
 			onRoute = false;
@@ -154,8 +152,11 @@ public class Move : WayPointManager
 			moveActive = false;
 			return;
 		}
-		
-		_NavMesh.speed = _unitStats.BaseSpeed;
+
+		if (_ai.unitState != Ai.UnitState.Idle)
+		{
+			_NavMesh.speed = _unitStats.BaseSpeed;
+		}
 	}
 	public void StopUnit() //unit stops drops and opens up shop ya'll
 	{

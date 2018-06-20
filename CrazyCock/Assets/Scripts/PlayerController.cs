@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	PlayerStats pStats;
+//	Animator _anim;
 	public Transform target;
 
 	public bool isMoving;
@@ -19,8 +20,10 @@ public class PlayerController : MonoBehaviour {
 	void Start () 
 	{
 		pStats = GetComponent<PlayerStats> ();
+	//	_anim = GetComponentInChildren<Animator> ();
 	}
 
+	#region Movement
 	void Move()
 	{
 		if (target != null)
@@ -48,11 +51,10 @@ public class PlayerController : MonoBehaviour {
 		Ray front = new Ray (this.transform.position, dir);
 		if (Physics.Raycast (front, out hit, 1.5f, 1 << 8))
 		{
-		//	print (hit.transform.name);
 			target = hit.transform;
 		}
 
-		Debug.DrawRay (this.transform.position, dir * 1.5f, Color.red,8f);
+	//	Debug.DrawRay (this.transform.position, dir * 1.5f, Color.red,8f);
 
 	} 
 
@@ -72,14 +74,15 @@ public class PlayerController : MonoBehaviour {
 			DetectWP (Vector3.right);
 		}
 	}
+	#endregion
 
-
+	#region Items
 	//PickUp Items
 	void OnTriggerEnter(Collider col)
 	{
 		if (col.gameObject.tag == "Item")
 		{
-			print (col.transform.name);
+		//	print (col.transform.name);
 			Item item = col.GetComponent<Item> ();
 			pStats.localScore = pStats.localScore + item.pointValue;
 
@@ -88,8 +91,12 @@ public class PlayerController : MonoBehaviour {
 				
 				//Maak IE numerator timer SpeedBuff
 				StartCoroutine(OnDrugs(item.buffduration, item.speedBuff));
+				item.NRGParticle ();
 			}
-
+			else if(item.transform.name == "EggItem")
+			{
+				item.EggParticle ();
+			}
 			item.DestroyObj ();
 		}
 	}
@@ -105,12 +112,16 @@ public class PlayerController : MonoBehaviour {
 		pStats.playaSpeed = pStats.playaSpeed - spBuff;
 		pStats.NRGized = false;
 	}
-		
+	#endregion
 
-	
-	// Update is called once per frame
+	public void Dead(bool Bingo)
+	{
+		Destroy (GetComponent<PlayerController> ());
+	}
+
 	void Update ()
 	{
+		//keyInputs
 		if (Input.GetKeyDown("w"))
 		{
 			goingUp = true;

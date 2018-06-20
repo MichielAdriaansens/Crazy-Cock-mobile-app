@@ -16,4 +16,6 @@ public class UnitStats : MonoBehaviour
 	//how close unit must be to destination to register ..when destination is reached
 	public float stoppingDist = 0.1f;
 
+	public float AttackRange = 1.25f;
+
 }

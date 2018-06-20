@@ -925,6 +925,7 @@ MonoBehaviour:
   BaseSpeed: 1.2
   BonusSpeed: 0.3
   stoppingDist: 0.5
+  AttackRange: 1.25
 --- !u!114 &114808159803262604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -936,7 +937,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae839c9e43d1cc45b82214ef582f071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitState: 0
+  unitState: 2
+  gotPlayer: 0
 --- !u!137 &137911872652486304
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

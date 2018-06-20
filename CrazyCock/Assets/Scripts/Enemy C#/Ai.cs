@@ -6,25 +6,28 @@ public class Ai : MonoBehaviour
 {
 	Move _move;
 	WayPointManager _wpManage;
-//	UnitStats _uStats;
+	UnitStats _uStats;
 
+	GameObject _player;
+	Vector3 playerDist;
 	public enum UnitState {Idle, Patrol, Chase, FLee};
 	public UnitState unitState;
 
 	private bool isTriggered = false;
+	public bool gotPlayer;
 
 	void Start()
 	{
-		//unitState = UnitState.Patrol;
 		_move = GetComponent<Move> ();
+		_uStats = GetComponent<UnitStats> ();
 		_wpManage = GameObject.Find ("_WayPoint_holder").GetComponent<WayPointManager> ();
-		//_uStats = GetComponent<UnitStats> ();
+		_player = GameObject.FindGameObjectWithTag ("PlayerCC");
+
 	}
 
 	void Chase()
 	{
 		_move.onRoute = false;
-	//	_move._CurDestination = GameObject.Find ("target").transform;	//Debug target must be Player
 		_move.SetDestination ();
 		_move.moveActive = true;
 	}
@@ -35,6 +38,31 @@ public class Ai : MonoBehaviour
 			_move.SendMessage ("SetRoute", _wpManage.tempL);	//set wich route unit will follow 
 		}
 		_move.FollowRoute ();
+	}
+
+
+	void DistanceFromPlayer()
+	{
+		playerDist = transform.position - _player.transform.position;
+		if (playerDist.magnitude < _uStats.AttackRange)
+		{
+			if(!_player.GetComponent<PlayerStats>().NRGized)
+			{
+				KillPlayer ();
+			}
+		}
+	}
+	void KillPlayer()
+	{
+		unitState = UnitState.Idle;
+
+		if (!gotPlayer)
+		{
+			_player.GetComponent<PlayerController> ().SendMessage ("Dead", true);
+			_player.GetComponent<AnimCtrl_Playa> ().PlayDeath(transform.position);
+		}
+
+		gotPlayer = true;
 	}
 	void SwitchState () 
 	{
@@ -87,5 +115,7 @@ public class Ai : MonoBehaviour
 	void Update()
 	{
 		SwitchState ();
+
+		DistanceFromPlayer ();
 	}
 }
