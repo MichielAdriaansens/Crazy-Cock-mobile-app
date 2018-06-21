@@ -87,16 +87,17 @@ public class PlayerController : MonoBehaviour {
 		{
 		//	print (col.transform.name);
 			Item item = col.GetComponent<Item> ();
-			pStats.localScore = pStats.localScore + item.pointValue;
+			pStats.localScore = ScoreManager.instance.score + item.pointValue;
+			ScoreManager.instance.CalculateNewScore ();
 
-			if (item.transform.name == "NRGItem")
+			if (item.ItemId == 1) //NEG
 			{
 				
 				//Maak IE numerator timer SpeedBuff
 				StartCoroutine(OnDrugs(item.buffduration, item.speedBuff));
 				item.NRGParticle ();
 			}
-			else if(item.transform.name == "EggItem")
+			else if(item.ItemId == 0) //Egg
 			{
 				item.EggParticle ();
 			}
@@ -121,6 +122,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		DestroyObject (Shadow);
 		Destroy (GetComponent<PlayerController> ());
+		Level_Manager.instance.playerDied = true;
 	}
 
 	void Update ()

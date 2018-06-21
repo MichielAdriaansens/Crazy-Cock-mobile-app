@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour 
 {
+	public int ItemId; // 0 = Egg 1 = NRG
 	public int pointValue;
 	public float speedBuff;
 	public float buffduration;
@@ -12,13 +13,13 @@ public class Item : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		if (transform.name == "EggItem")
+		if (ItemId == 0)//Egg
 		{
 			pointValue = 1;
 			speedBuff = 0f;
 			buffduration = 0;
 		}
-		else if (transform.name == "NRGItem")
+		else if (ItemId == 1)//NRG
 		{
 			pointValue = 25;
 			speedBuff = 1f;
@@ -37,6 +38,11 @@ public class Item : MonoBehaviour
 	public void DestroyObj()
 	{
 		Destroy (gameObject);
+
+		if (ItemId == 0)
+		{
+			Level_Manager.instance.EggCounter --;
+		}
 	}
 	// Update is called once per frame
 	void Update () {

@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ScoreManager : MonoBehaviour 
 {
 
 	public static ScoreManager instance;
+	PlayerStats pStats;
 
 
 	int highScore;
-	int score = 0;
+	public int score;
 
 	void Awake()
 	{	
@@ -20,10 +22,26 @@ public class ScoreManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		PlayerPrefs.SetInt ("score", score);
+		
+		if (GameObject.FindWithTag ("PlayerCC") != null)
+		{
+			pStats = GameObject.FindWithTag ("PlayerCC").GetComponent<PlayerStats> ();
+		}
+		//if the player hasn't quit or died.. don't reset the score
+		if (Game_Manager.instance.GameStateID != 0)
+		{
+			score = PlayerPrefs.GetInt ("score");
+			pStats.localScore = score;
+			CalculateNewScore ();
+			print ("Hellow??");
+		} 
+		else
+		{
+			PlayerPrefs.SetInt ("score", score);
+		}
 	}
 
-	void NewhighScore()
+	void CheckNewhighScore()
 	{
 		if (PlayerPrefs.HasKey ("highscore"))
 		{
@@ -38,8 +56,24 @@ public class ScoreManager : MonoBehaviour
 		}
 	}
 
-	void getScore(int Eggs)
+	public void CalculateNewScore()
 	{
-		PlayerPrefs.SetInt ("score", score + Eggs);
+		if (pStats != null)
+		{
+			score = pStats.localScore;
+			UiManager.instance.ScoreCount (score);
+		}
+	}
+
+	public void SaveScore()
+	{
+		ScoreManager.instance.CheckNewhighScore ();
+		PlayerPrefs.SetInt ("score", score);
+	}
+
+	public void resetScore()
+	{
+		score = 0;
+		PlayerPrefs.SetInt ("score", score);
 	}
 }
