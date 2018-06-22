@@ -11,10 +11,11 @@ public class Ai : MonoBehaviour
 
 	GameObject _player;
 	Vector3 playerDist;
-	public enum UnitState {Idle, Patrol, Chase, FLee};
+	public enum UnitState {Idle, Patrol, Chase, FLee, Dead};
 	public UnitState unitState;
 
 	private bool isTriggered = false;
+	private bool isDead = false;
 	public bool gotPlayer;
 
 	void Start()
@@ -53,13 +54,21 @@ public class Ai : MonoBehaviour
 				Vector3 newRot = _player.transform.position - this.transform.position;
 				transform.rotation = Quaternion.Slerp (this.transform.rotation, Quaternion.LookRotation (newRot), Time.deltaTime * 10);
 
-			if (!_player.GetComponent<PlayerStats> ().NRGized && !gotPlayer)
+			if (!_player.GetComponent<PlayerStats> ().NRGized)
 			{
-				_anim.Attack ();
-				KillPlayer ();
+				if (!gotPlayer)
+				{
+					_anim.Attack ();
+					KillPlayer ();
 
-				gotPlayer = true;
+					gotPlayer = true;
+				}
 			}
+			else
+			{
+				unitState = UnitState.Dead;
+			}
+
 		}
 	}
 
@@ -70,6 +79,18 @@ public class Ai : MonoBehaviour
 		_player.GetComponent<PlayerController> ().SendMessage ("Dead", true);
 		_player.GetComponent<AnimCtrl_Playa> ().PlayDeath(transform.position);
 
+	}
+
+	void Death()
+	{
+		//trigger animation
+		_anim.DeathAnim();
+		//give points to pstats.localscore
+		int pScore = _player.GetComponent<PlayerStats>().localScore; 
+		_player.GetComponent<PlayerStats>().localScore = pScore + _uStats.pointValue;
+
+		//destroy this Object
+		Destroy(this.gameObject);
 	}
 	void SwitchState () 
 	{
@@ -107,6 +128,13 @@ public class Ai : MonoBehaviour
 			}
 			#endregion
 			Chase ();
+			break;
+		case UnitState.Dead:
+			if (!isDead)
+			{
+				Death ();
+				isDead = true;
+			}
 			break;
 		default:
 			break;

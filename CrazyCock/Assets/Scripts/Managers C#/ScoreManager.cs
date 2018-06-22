@@ -33,7 +33,6 @@ public class ScoreManager : MonoBehaviour
 			score = PlayerPrefs.GetInt ("score");
 			pStats.localScore = score;
 			CalculateNewScore ();
-			print ("Hellow??");
 		} 
 		else
 		{

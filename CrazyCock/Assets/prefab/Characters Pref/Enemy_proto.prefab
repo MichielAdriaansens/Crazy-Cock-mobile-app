@@ -982,6 +982,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de68ad4bde53584caff293fb6a6e5bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Leg1: {fileID: 1700444715602312}
+  Leg2: {fileID: 1183913800765548}
+  Spine: {fileID: 1122401485799640}
+  Head: {fileID: 1325431311478164}
+  Jaw: {fileID: 1608004400679872}
+  leg1FX: {fileID: 1495509731596714, guid: 196d9d1d6b6358d4c85e8a154a83a9ff, type: 2}
+  leg2FX: {fileID: 1162485057196628, guid: 5ba549ec4bfca944fa5c834acda7d10f, type: 2}
+  SpineFX: {fileID: 1933773000679142, guid: ca9f3dca09685b346afc6800236a9236, type: 2}
+  HeadFX: {fileID: 1546986557895074, guid: 5f636cf834451284d8df3282f150bb6b, type: 2}
+  JawFX: {fileID: 1398806268446976, guid: 265b9ddb4fbc28f40be1ae289adc28af, type: 2}
 --- !u!114 &114803842461061692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -993,6 +1003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131974f90ea03aa42b3a2d7883cfb78d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointValue: 100
   Performance: 10
   BaseSpeed: 1.2
   BonusSpeed: 0.3
